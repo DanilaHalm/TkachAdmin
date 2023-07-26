@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import { GalleryContext } from "@/servises/context";
-// import Parse from "parse/dist/parse.min.js";
 import Parse from "@/servises/parse";
 
 const getGallery = async () => {

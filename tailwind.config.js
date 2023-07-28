@@ -10,7 +10,16 @@ module.exports = {
       colors: {
         dark: "#222532",
         light: "#FFFFFF",
+        pink: "#DA5D7D",
       },
+    },
+    minWidth: {
+      xs: "320px",
+      s: "750px",
+    },
+    maxWidth: {
+      xs: "320px",
+      s: "800px",
     },
   },
   plugins: [],

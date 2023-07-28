@@ -3,20 +3,18 @@ import Image from "next/image";
 import { useState } from "react";
 
 const FileLoader = ({ logo }) => {
-  const [urls, setUrls] = useState([]);
+  const [url, setUrl] = useState(null);
 
   const handleChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    const url = window.URL.createObjectURL(file);
-    setUrls([...urls, url]);
+    const localeUrl = window.URL.createObjectURL(file);
+    setUrl(localeUrl);
   };
 
   return (
     <div className="flex justify-center items-center">
-      {urls?.map((url) => {
-        return <Image key={url} src={url} alt="img" width="0" height="0" sizes="100vw" className="w-10 h-auto mr-1" />;
-      })}
+      {url && <Image key={url} src={url} alt="img" width="0" height="0" sizes="100vw" className="w-10 h-auto mr-1" />}
       <FileButton onChange={handleChange} logo={logo} />
     </div>
   );

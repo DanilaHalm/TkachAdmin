@@ -1,8 +1,6 @@
 import Image from "next/image";
 import EditButton from "../common/editButton";
-import FileButton from "../common/fileButton";
 import FileLoader from "../common/fileLoader";
-import { useState } from "react";
 
 const GalleryAlbumLogo = ({ id, logo }) => {
   return (

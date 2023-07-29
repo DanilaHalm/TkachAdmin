@@ -27,8 +27,6 @@ const Gallery = () => {
     if (!albums) getAlbums();
   }, [albums]);
 
-  console.log(albums);
-
   return (
     <GalleryContext.Provider value={[albums, setAlbums]}>
       <main>

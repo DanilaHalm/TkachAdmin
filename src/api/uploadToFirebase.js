@@ -9,7 +9,6 @@ const uploadToFirebase = async (imgFile, id) => {
   try {
     const res = await uploadBytes(imageref, imgFile);
     const imgUrl = await getDownloadURL(imageref);
-    console.log(imgUrl, typeof imgUrl);
     return imgUrl;
   } catch (error) {
     console.error(error);

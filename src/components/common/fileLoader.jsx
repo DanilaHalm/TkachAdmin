@@ -1,6 +1,5 @@
 import FileButton from "./fileButton";
 import Image from "next/image";
-import { useState } from "react";
 
 const FileLoader = ({ logo, setImgFile, localFileUrl, setLocalFileUrl }) => {
   const handleChange = (e) => {

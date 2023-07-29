@@ -3,6 +3,10 @@ import Image from "next/image";
 
 const FileLoader = ({ logo, setImgFile, localFileUrl, setLocalFileUrl }) => {
   const handleChange = (e) => {
+    console.log({
+      logo: logo,
+      localFileUrl: localFileUrl,
+    });
     const file = e.target.files[0];
     if (!file) return;
     const localeUrl = window.URL.createObjectURL(file);

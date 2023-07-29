@@ -1,4 +1,4 @@
-const FileButton = ({ onChange, onClick, logo }) => {
+const FileButton = ({ onChange, logo }) => {
   return (
     <label
       htmlFor={logo}

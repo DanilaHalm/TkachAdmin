@@ -24,8 +24,10 @@ const Gallery = () => {
       const context = await getGallery();
       setAlbums(context);
     };
-    getAlbums();
-  }, []);
+    if (!albums) getAlbums();
+  }, [albums]);
+
+  console.log(albums);
 
   return (
     <GalleryContext.Provider value={[albums, setAlbums]}>

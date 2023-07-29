@@ -15,8 +15,8 @@ const GalleryAlbumtTitle = ({ id, title }) => {
       await album.save();
       setTitleText(inputText);
       return true;
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error(error);
       return null;
     }
   };

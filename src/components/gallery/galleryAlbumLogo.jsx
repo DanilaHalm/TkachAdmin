@@ -21,7 +21,13 @@ const GalleryAlbumLogo = ({ id, logo }) => {
     <div className="flex items-center mb-2 border-b pb-2">
       Logo:
       <Image src={currentLogo} alt="logo" width="0" height="0" sizes="100vw" className="w-20 h-auto mr-auto" />
-      <FileLoader logo={logo} setImgFile={setImgFile} localFileUrl={localFileUrl} setLocalFileUrl={setLocalFileUrl} />
+      <FileLoader
+        id={id}
+        logo={logo}
+        setImgFile={setImgFile}
+        localFileUrl={localFileUrl}
+        setLocalFileUrl={setLocalFileUrl}
+      />
       <EditButton onClick={() => handleUpdate(imgFile, id)} />
     </div>
   );

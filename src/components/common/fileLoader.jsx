@@ -1,12 +1,8 @@
 import FileButton from "./fileButton";
 import Image from "next/image";
 
-const FileLoader = ({ logo, setImgFile, localFileUrl, setLocalFileUrl }) => {
+const FileLoader = ({ id, logo, setImgFile, localFileUrl, setLocalFileUrl }) => {
   const handleChange = (e) => {
-    console.log({
-      logo: logo,
-      localFileUrl: localFileUrl,
-    });
     const file = e.target.files[0];
     if (!file) return;
     const localeUrl = window.URL.createObjectURL(file);
@@ -27,7 +23,7 @@ const FileLoader = ({ logo, setImgFile, localFileUrl, setLocalFileUrl }) => {
           className="w-10 h-auto mr-1"
         />
       )}
-      <FileButton onChange={handleChange} logo={logo} />
+      <FileButton onChange={handleChange} logo={logo} id={id} />
     </div>
   );
 };

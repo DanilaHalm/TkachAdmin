@@ -5,15 +5,15 @@ import { useState } from "react";
 import updateGalleryLogo from "@/api/updateGalleryLogo";
 
 const GalleryAlbumLogo = ({ id, logo }) => {
-  const [imgFile, setImgFile] = useState(null);
-  const [localFileUrl, setLocalFileUrl] = useState(null);
+  const [imgFiles, setImgFiles] = useState([]);
+  const [localFileUrls, setLocalFileUrls] = useState([]); //array
   const [currentLogo, setCurrentLogo] = useState(logo);
 
-  const handleUpdate = async (imgFile, id) => {
-    const newLogo = await updateGalleryLogo(imgFile, id);
+  const handleUpdate = async (imgFiles, id) => {
+    const newLogo = await updateGalleryLogo(imgFiles, id);
     if (newLogo) {
       setCurrentLogo(newLogo);
-      setLocalFileUrl(null);
+      setLocalFileUrls([]);
     }
   };
 
@@ -23,12 +23,14 @@ const GalleryAlbumLogo = ({ id, logo }) => {
       <Image src={currentLogo} alt="logo" width="0" height="0" sizes="100vw" className="w-20 h-auto mr-auto" />
       <FileLoader
         id={id}
-        logo={logo}
-        setImgFile={setImgFile}
-        localFileUrl={localFileUrl}
-        setLocalFileUrl={setLocalFileUrl}
+        isLogo={true}
+        images={[logo]}
+        imgFiles={imgFiles}
+        setImgFiles={setImgFiles}
+        localFileUrls={localFileUrls}
+        setLocalFileUrls={setLocalFileUrls}
       />
-      <EditButton onClick={() => handleUpdate(imgFile, id)} />
+      <EditButton onClick={() => handleUpdate(imgFiles, id)} />
     </div>
   );
 };

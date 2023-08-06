@@ -5,6 +5,7 @@ import FileLoader from "../common/fileLoader";
 import { useState } from "react";
 import updateGalleryImages from "@/api/updateGalleryImages";
 import deleteGalleryImage from "@/api/deleteGalleryImage";
+import deleteGalleryImages from "@/api/deleteGalleryImages";
 
 const GalleryAlbumImages = ({ id, images }) => {
   const [imgFiles, setImgFiles] = useState([]);
@@ -24,6 +25,11 @@ const GalleryAlbumImages = ({ id, images }) => {
     setCurrentImages(newImages);
   };
 
+  const handleDeleteAll = async (images) => {
+    const deleted = await deleteGalleryImages(id, images);
+    setCurrentImages([]);
+  };
+
   return (
     <div className="">
       <div className="flex border-b mb-1 pb-2 items-center">
@@ -38,7 +44,7 @@ const GalleryAlbumImages = ({ id, images }) => {
           setLocalFileUrls={setLocalFileUrls}
         />
         <EditButton onClick={() => handleUpdate(imgFiles, id)} />
-        <DeleteButton isAll={true} />
+        <DeleteButton isAll={true} onClick={() => handleDeleteAll(currentImages)} />
       </div>
       {currentImages.map((url) => {
         return (

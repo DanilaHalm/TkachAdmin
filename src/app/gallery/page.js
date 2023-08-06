@@ -32,7 +32,7 @@ const Gallery = () => {
       <main>
         <div className="flex flex-col justify-center items-center">
           <h1 className="font-bold text-3xl my-10"> Gallery </h1>
-          <AddButton isAlbum={true} />
+          <AddButton />
         </div>
         <GalleryTable />
       </main>

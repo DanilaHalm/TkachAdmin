@@ -3,6 +3,7 @@ import EditButton from "../common/editButton";
 import FileLoader from "../common/fileLoader";
 import { useState } from "react";
 import updateGalleryLogo from "@/api/updateGalleryLogo";
+import deleteFromFirebase from "@/api/deleteFromFirebase";
 
 const GalleryAlbumLogo = ({ id, logo }) => {
   const [imgFiles, setImgFiles] = useState([]);
@@ -12,6 +13,7 @@ const GalleryAlbumLogo = ({ id, logo }) => {
   const handleUpdate = async (imgFiles, id) => {
     const newLogo = await updateGalleryLogo(imgFiles, id);
     if (newLogo) {
+      await deleteFromFirebase(currentLogo);
       setCurrentLogo(newLogo);
       setLocalFileUrls([]);
     }

@@ -9,6 +9,7 @@ const uploadToFirebase = async (imgFiles, id) => {
 
   const dataToUpload = compressedFiles.map((compressedFile) => {
     const imageref = ref(storage, `/tkach/gallery/${id}_${compressedFile.name}`);
+
     return {
       file: compressedFile,
       imageref: imageref,

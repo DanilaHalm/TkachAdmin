@@ -4,6 +4,7 @@ import EditButton from "../common/editButton";
 import FileLoader from "../common/fileLoader";
 import { useState } from "react";
 import updateGalleryImages from "@/api/updateGalleryImages";
+import deleteGalleryImage from "@/api/deleteGalleryImage";
 
 const GalleryAlbumImages = ({ id, images }) => {
   const [imgFiles, setImgFiles] = useState([]);
@@ -16,6 +17,11 @@ const GalleryAlbumImages = ({ id, images }) => {
       setCurrentImages([...currentImages, ...newImages]);
       setLocalFileUrls([]);
     }
+  };
+
+  const handleDelete = async (url) => {
+    const newImages = await deleteGalleryImage(url, id, images);
+    setCurrentImages(newImages);
   };
 
   return (
@@ -38,7 +44,7 @@ const GalleryAlbumImages = ({ id, images }) => {
         return (
           <div className="flex mb-1 pb-1 border-b items-center" key={url}>
             <Image src={url} alt="albumimage" width="0" height="0" sizes="100vw" className="w-20 h-auto mr-auto " />
-            <DeleteButton />
+            <DeleteButton onClick={() => handleDelete(url)} />
           </div>
         );
       })}

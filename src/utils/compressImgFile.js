@@ -12,6 +12,7 @@ const compressImgFile = async (imgFiles) => {
   });
   try {
     const compressedFiles = await Promise.all(promises);
+
     return compressedFiles;
   } catch (error) {
     console.log(error);

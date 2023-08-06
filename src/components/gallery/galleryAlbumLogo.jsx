@@ -6,7 +6,7 @@ import updateGalleryLogo from "@/api/updateGalleryLogo";
 
 const GalleryAlbumLogo = ({ id, logo }) => {
   const [imgFiles, setImgFiles] = useState([]);
-  const [localFileUrls, setLocalFileUrls] = useState([]); //array
+  const [localFileUrls, setLocalFileUrls] = useState([]);
   const [currentLogo, setCurrentLogo] = useState(logo);
 
   const handleUpdate = async (imgFiles, id) => {

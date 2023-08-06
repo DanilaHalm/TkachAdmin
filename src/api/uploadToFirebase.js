@@ -1,5 +1,5 @@
 import firebaseApp from "@/servises/firebase";
-import { getStorage, ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import compressImgFile from "@/utils/compressImgFile";
 
 const uploadToFirebase = async (imgFiles, id) => {
@@ -20,14 +20,16 @@ const uploadToFirebase = async (imgFiles, id) => {
       const res = uploadBytes(data.imageref, data.file);
       return res;
     });
+
     const newImages = await Promise.all(uploadPromises);
 
     const urlPromises = dataToUpload.map(async (data) => {
       const imgUrl = await getDownloadURL(data.imageref);
-
       return imgUrl;
     });
+
     const imgUrls = await Promise.all(urlPromises);
+
     return imgUrls;
   } catch (error) {
     console.error(error);

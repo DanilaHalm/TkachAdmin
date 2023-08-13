@@ -1,6 +1,6 @@
 "use client";
 import GalleryTable from "@/components/gallery/galleryTable";
-import AddButton from "@/components/common/addButton";
+import CreateAlbum from "@/components/gallery/createAlbum";
 import { useEffect, useState } from "react";
 import { GalleryContext } from "@/servises/context";
 import Parse from "@/servises/parse";
@@ -32,7 +32,7 @@ const Gallery = () => {
       <main>
         <div className="flex flex-col justify-center items-center">
           <h1 className="font-bold text-3xl my-10"> Gallery </h1>
-          <AddButton />
+          <CreateAlbum />
         </div>
         <GalleryTable />
       </main>

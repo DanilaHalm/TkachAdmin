@@ -1,19 +1,20 @@
-import uploadToFirebase from "@/api/uploadToFirebase";
 import Parse from "@/servises/parse";
+import uploadToFirebase from "@/api/uploadToFirebase";
 
-const updateGalleryLogo = async (imgFiles, id) => {
+const createGalleryAlbum = async (imgFiles, inputText) => {
   const newLogoUrls = await uploadToFirebase(imgFiles);
   const newLogoUrl = newLogoUrls[0];
   const album = new Parse.Object("gallery");
-  album.set("objectId", id);
   album.set("albumLogo", newLogoUrl);
+  album.set("albumTitle", inputText);
+  album.set("albumImages", []);
   try {
     await album.save();
-    return newLogoUrl;
+    return album;
   } catch (error) {
     console.error(error);
     return null;
   }
 };
 
-export default updateGalleryLogo;
+export default createGalleryAlbum;

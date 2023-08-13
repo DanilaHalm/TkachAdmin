@@ -2,8 +2,7 @@ import uploadToFirebase from "@/api/uploadToFirebase";
 import Parse from "@/servises/parse";
 
 const updateGalleryImages = async (imgFiles, id, currentImages) => {
-  const newLogoUrls = await uploadToFirebase(imgFiles, id);
-
+  const newLogoUrls = await uploadToFirebase(imgFiles);
   const album = new Parse.Object("gallery");
 
   album.set("objectId", id);

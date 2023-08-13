@@ -16,7 +16,7 @@ const FileLoader = ({ id, isLogo, images, imgFiles, setImgFiles, localFileUrls, 
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center ml-2">
       {localFileUrls?.length > 0 &&
         localFileUrls.map((localFileUrl) => {
           return (

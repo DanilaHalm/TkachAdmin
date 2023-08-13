@@ -1,14 +1,15 @@
 import firebaseApp from "@/servises/firebase";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import compressImgFile from "@/utils/compressImgFile";
+import { v4 as uuidv4 } from "uuid";
 
-const uploadToFirebase = async (imgFiles, id) => {
+const uploadToFirebase = async (imgFiles) => {
   const storage = getStorage(firebaseApp, "gs://testproject-91c17.appspot.com/");
-
   const compressedFiles = await compressImgFile(imgFiles);
 
   const dataToUpload = compressedFiles.map((compressedFile) => {
-    const imageref = ref(storage, `/tkach/gallery/${id}_${compressedFile.name}`);
+    const id = uuidv4();
+    const imageref = ref(storage, `/tkach/gallery/${compressedFile.name}_${id}`);
 
     return {
       file: compressedFile,

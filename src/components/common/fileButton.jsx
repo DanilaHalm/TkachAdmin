@@ -1,5 +1,5 @@
 const FileButton = ({ onChange, images, id }) => {
-  const personalId = images.length > 1 ? `${id}` : `${id}_${images[0]}`;
+  const personalId = !images || images?.length > 1 ? `${id}` : `${id}_${images[0]}`;
 
   return (
     <label

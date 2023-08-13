@@ -3,6 +3,7 @@ import { useContext } from "react";
 import GalleryAlbumTitle from "./galleryAlbumTitle";
 import GalleryAlbumLogo from "./galleryAlbumLogo";
 import GalleryAlbumImages from "./galleryAlbumImages";
+import GalleryAlbumDelete from "./galleryAlbumDelete";
 
 const GalleryTable = () => {
   const [albums, setAlbums] = useContext(GalleryContext);
@@ -22,6 +23,7 @@ const GalleryTable = () => {
             <GalleryAlbumTitle title={title} id={id} />
             <GalleryAlbumLogo logo={logo} id={id} />
             <GalleryAlbumImages images={images} id={id} />
+            <GalleryAlbumDelete logo={logo} images={images} id={id} />
           </div>
         );
       })}

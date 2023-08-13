@@ -12,6 +12,9 @@ module.exports = {
         light: "#FFFFFF",
         pink: "#DA5D7D",
       },
+      width: {
+        42: "168px",
+      },
     },
     minWidth: {
       xs: "320px",

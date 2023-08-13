@@ -13,8 +13,8 @@ const GalleryAlbumDelete = ({ logo, images, id }) => {
     }
   };
   return (
-    <div>
-      <DeleteButton onClick={() => handleDelete()} />
+    <div className="flex justify-end items-center">
+      <DeleteButton onClick={() => handleDelete()} isAlbum={true} />
     </div>
   );
 };

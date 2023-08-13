@@ -1,23 +1,16 @@
 import EditButton from "../common/editButton";
 import { useState } from "react";
-import Parse from "@/servises/parse";
+import updateGalleryTitle from "@/api/updateGalleryTtitle";
 
 const GalleryAlbumtTitle = ({ id, title }) => {
   const [inputText, setInputText] = useState("");
   const [titleText, setTitleText] = useState(title);
 
-  const updateTitle = async () => {
-    if (!inputText) return;
-    const album = new Parse.Object("gallery");
-    album.set("objectId", id);
-    album.set("albumTitle", inputText);
-    try {
-      await album.save();
+  const handleUpdate = async () => {
+    const titleUpdated = await updateGalleryTitle(id, inputText);
+    if (titleUpdated) {
       setTitleText(inputText);
-      return true;
-    } catch (error) {
-      console.error(error);
-      return null;
+      setInputText("");
     }
   };
 
@@ -31,7 +24,7 @@ const GalleryAlbumtTitle = ({ id, title }) => {
         value={inputText}
       />
 
-      <EditButton onClick={() => updateTitle()} />
+      <EditButton onClick={() => handleUpdate()} />
     </div>
   );
 };

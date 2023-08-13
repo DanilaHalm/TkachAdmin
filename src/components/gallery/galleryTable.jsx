@@ -7,7 +7,10 @@ import GalleryAlbumDelete from "./galleryAlbumDelete";
 
 const GalleryTable = () => {
   const [albums, setAlbums] = useContext(GalleryContext);
-
+  albums?.sort((album1, album2) => {
+    const [date1, date2] = [album1.attributes.createdAt, album2.attributes.createdAt];
+    return new Date(date1) - new Date(date2);
+  });
   return (
     <div className="max-w-s mt-10 mx-auto">
       {albums?.map((album) => {

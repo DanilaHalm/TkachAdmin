@@ -1,17 +1,17 @@
 import EditButton from "../common/editButton";
 import { useState } from "react";
-import updateGalleryTitle from "@/api/updateGalleryTtitle";
+// import updateGalleryTitle from "@/api/updateGalleryTtitle";
 
-const GalleryAlbumtTitle = ({ id, title }) => {
+const CatalogAlbumTitle = ({ id, title }) => {
   const [inputText, setInputText] = useState("");
   const [titleText, setTitleText] = useState(title);
 
   const handleUpdate = async () => {
-    const titleUpdated = await updateGalleryTitle(id, inputText);
-    if (titleUpdated) {
-      setTitleText(inputText);
-      setInputText("");
-    }
+    // const titleUpdated = await updateGalleryTitle(id, inputText);
+    // if (titleUpdated) {
+    //   setTitleText(inputText);
+    //   setInputText("");
+    // }
   };
 
   return (
@@ -29,4 +29,4 @@ const GalleryAlbumtTitle = ({ id, title }) => {
   );
 };
 
-export default GalleryAlbumtTitle;
+export default CatalogAlbumTitle;

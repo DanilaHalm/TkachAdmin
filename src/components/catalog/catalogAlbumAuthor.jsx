@@ -1,22 +1,22 @@
 import EditButton from "../common/editButton";
 import { useState } from "react";
-import updateGalleryTitle from "@/api/updateGalleryTtitle";
+// import updateGalleryTitle from "@/api/updateGalleryTtitle";
 
-const GalleryAlbumtTitle = ({ id, title }) => {
+const CatalogAlbumAuthor = ({ id, author }) => {
   const [inputText, setInputText] = useState("");
-  const [titleText, setTitleText] = useState(title);
+  const [titleText, setTitleText] = useState(author);
 
   const handleUpdate = async () => {
-    const titleUpdated = await updateGalleryTitle(id, inputText);
-    if (titleUpdated) {
-      setTitleText(inputText);
-      setInputText("");
-    }
+    // const titleUpdated = await updateGalleryTitle(id, inputText);
+    // if (titleUpdated) {
+    //   setTitleText(inputText);
+    //   setInputText("");
+    // }
   };
 
   return (
     <div className="flex mb-2 border-b items-center">
-      <h3 className="mr-auto font-bold text-xl">Title: {titleText}</h3>
+      <h3 className="mr-auto  text-xl">Author: {titleText}</h3>
       <input
         onChange={(e) => setInputText(e.target.value)}
         type="text"
@@ -29,4 +29,4 @@ const GalleryAlbumtTitle = ({ id, title }) => {
   );
 };
 
-export default GalleryAlbumtTitle;
+export default CatalogAlbumAuthor;

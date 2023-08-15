@@ -1,17 +1,17 @@
 import EditButton from "../common/editButton";
 import { useState } from "react";
-// import updateGalleryTitle from "@/api/updateGalleryTtitle";
+import updateCatalogSectionDescription from "@/api/updateCatalogSectionDescription";
 
 const CatalogSectionDescription = ({ id, description }) => {
   const [inputText, setInputText] = useState("");
   const [descriptionText, setDescriptionText] = useState(description);
 
   const handleUpdate = async () => {
-    // const titleUpdated = await updateGalleryTitle(id, inputText);
-    // if (titleUpdated) {
-    //   setDescriptionText(inputText);
-    //   setInputText("");
-    // }
+    const descriptionUpdated = await updateCatalogSectionDescription(id, inputText);
+    if (descriptionUpdated) {
+      setDescriptionText(inputText);
+      setInputText("");
+    }
   };
 
   return (

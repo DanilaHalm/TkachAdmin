@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CatalogSectionContext, CatalogSectionAlbumsContext } from "@/servises/context";
 import Parse from "@/servises/parse";
 import CatalogTable from "@/components/catalog/catalogTable";
+import CreateSection from "@/components/catalog/createSection";
 
 const getCatalogSections = async () => {
   const catalogSections = new Parse.Query("catalogSection");
@@ -47,7 +48,7 @@ const Catalog = () => {
           <main>
             <div className="flex flex-col justify-center items-center">
               <h1 className="font-bold text-3xl my-10"> Catalog </h1>
-              {/* <CreateAlbum />  */}
+              <CreateSection />
             </div>
             <CatalogTable />
           </main>

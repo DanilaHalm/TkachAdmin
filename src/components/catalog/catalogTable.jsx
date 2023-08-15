@@ -24,7 +24,7 @@ const CatalogTable = () => {
           section.attributes.description,
           section.attributes.albums,
         ];
-        const sectionAlbums = albums.filter((album) => albumIds.includes(album.id));
+        const sectionAlbums = albums.filter((album) => albumIds?.includes(album.id));
 
         return (
           <div key={id} className="p-2 mb-16 items-center border rounded-md border-current">

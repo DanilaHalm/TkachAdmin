@@ -1,17 +1,17 @@
 import EditButton from "../common/editButton";
 import { useState } from "react";
-// import updateGalleryTitle from "@/api/updateGalleryTtitle";
+import updateCatalogAlbumAuthor from "@/api/updateCatalogAlbumAuthor";
 
-const CatalogAlbumAuthor = ({ id, author }) => {
+const CatalogAlbumAuthor = ({ id, author, currentImages, idx }) => {
   const [inputText, setInputText] = useState("");
   const [titleText, setTitleText] = useState(author);
 
   const handleUpdate = async () => {
-    // const titleUpdated = await updateGalleryTitle(id, inputText);
-    // if (titleUpdated) {
-    //   setTitleText(inputText);
-    //   setInputText("");
-    // }
+    const titleUpdated = await updateCatalogAlbumAuthor(id, inputText, currentImages, idx);
+    if (titleUpdated) {
+      setTitleText(inputText);
+      setInputText("");
+    }
   };
 
   return (

@@ -3,8 +3,9 @@ import { useContext } from "react";
 import CatalogAlbumTitle from "./catalogAlbumTitle";
 import CatalogAlbumLogo from "./catalogAlbumLogo";
 import CatalogAlbumImages from "./catalogAlbumImages";
+import CreateAlbum from "./createAlbum";
 
-const CatalogSectionAlbums = ({ albumIds }) => {
+const CatalogSectionAlbums = ({ id, albumIds }) => {
   const [albums, setAlbums] = useContext(CatalogSectionAlbumsContext);
   const sectionAlbums = albums.filter((album) => albumIds.includes(album.id));
 
@@ -15,6 +16,8 @@ const CatalogSectionAlbums = ({ albumIds }) => {
 
   return (
     <div className="max-w-s mt-10 mx-auto">
+      <CreateAlbum id={id} albumIds={albumIds} />
+
       {sectionAlbums?.map((album) => {
         const [id, title, logo, images] = [
           album.id,

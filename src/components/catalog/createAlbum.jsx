@@ -1,43 +1,39 @@
 import AddButton from "@/components/common/addButton";
 import FileLoader from "../common/fileLoader";
 import { useContext, useState } from "react";
-import createCatalogSection from "@/api/createCatalogSection";
-import { CatalogSectionContext } from "@/servises/context";
+import createCatalogAlbum from "@/api/createCatalogAlbum";
+import updateCatalogSectionAlbums from "@/api/updateCatalogSectionAlbums";
+import { CatalogSectionAlbumsContext } from "@/servises/context";
 
-const CreateSection = () => {
-  const [sections, setSections] = useContext(CatalogSectionContext);
+const CreateAlbum = ({ id, albumIds }) => {
+  const [albums, setAlbums] = useContext(CatalogSectionAlbumsContext);
   const [inputTitleText, setInputTitleText] = useState("");
-  const [inputDescriptionText, setInputDescriptionText] = useState("");
   const [imgFiles, setImgFiles] = useState([]);
   const [localFileUrls, setLocalFileUrls] = useState([]);
 
-  const id = "new-catalog-section";
-
   const handleCreate = async () => {
     if (!inputTitleText) {
-      console.log("empty input");
+      console.log("empty title");
       return;
     }
     if (imgFiles.length === 0) {
       console.log("empty logo");
       return;
     }
-    if (!inputDescriptionText) {
-      console.log("empty description");
-      return;
-    }
 
-    const newSection = await createCatalogSection(imgFiles, inputTitleText, inputDescriptionText);
-    setInputTitleText("");
-    setInputDescriptionText("");
-    setLocalFileUrls([]);
-    setSections([...sections, newSection]);
+    const newAlbum = await createCatalogAlbum(imgFiles, inputTitleText);
+    if (newAlbum) {
+      const sectionAlbums = await updateCatalogSectionAlbums(id, albumIds, newAlbum);
+      setInputTitleText("");
+      setLocalFileUrls([]);
+      setAlbums([...albums, newAlbum]);
+    }
   };
 
   return (
     <div className="flex max-w-s mx-auto flex-col items-center h-20 justify-between mb-4">
       {" "}
-      <label htmlFor="gallery-create-title" className="mr-auto">
+      <label htmlFor="gallery-create-title">
         {" "}
         New Title:
         <input
@@ -48,18 +44,7 @@ const CreateSection = () => {
           onChange={(e) => setInputTitleText(e.target.value)}
         />
       </label>
-      <label htmlFor="gallery-create-description" className="mr-auto my-2">
-        {" "}
-        New Description:
-        <input
-          id="gallery-create-description"
-          type="text"
-          className="ml-2 text-dark"
-          value={inputDescriptionText}
-          onChange={(e) => setInputDescriptionText(e.target.value)}
-        />
-      </label>
-      <div className="flex items-center mb-2">
+      <div className="flex items-center">
         New Logo:
         <FileLoader
           id={id}
@@ -76,4 +61,4 @@ const CreateSection = () => {
   );
 };
 
-export default CreateSection;
+export default CreateAlbum;

@@ -31,7 +31,7 @@ const CatalogTable = () => {
             <CatalogSectionTitle id={id} title={title} />
             <CatalogSectionLogo id={id} logo={logo} />
             <CatalogSectionDescription id={id} description={description} />
-            <CatalogSectionAlbums albumIds={albumIds} />
+            <CatalogSectionAlbums id={id} albumIds={albumIds} />
           </div>
         );
       })}

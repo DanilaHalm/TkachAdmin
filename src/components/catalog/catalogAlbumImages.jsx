@@ -5,8 +5,8 @@ import FileLoader from "../common/fileLoader";
 import CatalogAlbumAuthor from "./catalogAlbumAuthor";
 import { useState } from "react";
 import updateCatalogAlbumImages from "@/api/updateCatalogAlbumImages";
-// import deleteGalleryImage from "@/api/deleteGalleryImage";
-// import deleteGalleryImages from "@/api/deleteGalleryImages";
+import deleteCatalogAlbumImage from "@/api/deleteCatalogAlbumImage";
+import deleteCatalogAlbumImages from "@/api/deleteCatalogAlbumImages";
 
 const CatalogAlbumImages = ({ id, images }) => {
   const [imgFiles, setImgFiles] = useState([]);
@@ -24,13 +24,13 @@ const CatalogAlbumImages = ({ id, images }) => {
   };
 
   const handleDelete = async (url) => {
-    // const newImages = await deleteGalleryImage(url, id, currentImages);
-    // setCurrentImages(newImages);
+    const newImages = await deleteCatalogAlbumImage(url, id, currentImages);
+    setCurrentImages(newImages);
   };
 
   const handleDeleteAll = async (images) => {
-    // const deleted = await deleteGalleryImages(id, images);
-    // setCurrentImages([]);
+    const deleted = await deleteCatalogAlbumImages(id, images);
+    setCurrentImages([]);
   };
 
   return (

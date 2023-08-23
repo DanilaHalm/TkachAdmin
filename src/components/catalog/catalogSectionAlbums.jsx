@@ -4,6 +4,7 @@ import CatalogAlbumTitle from "./catalogAlbumTitle";
 import CatalogAlbumLogo from "./catalogAlbumLogo";
 import CatalogAlbumImages from "./catalogAlbumImages";
 import CreateAlbum from "./createAlbum";
+import CatalogAlbumDelete from "./catalogAlbumDelete";
 
 const CatalogSectionAlbums = ({ id, albumIds }) => {
   const [albums, setAlbums] = useContext(CatalogSectionAlbumsContext);
@@ -31,6 +32,7 @@ const CatalogSectionAlbums = ({ id, albumIds }) => {
             <CatalogAlbumTitle id={id} title={title} />
             <CatalogAlbumLogo id={id} logo={logo} />
             <CatalogAlbumImages id={id} images={images} />
+            <CatalogAlbumDelete id={id} logo={logo} images={images} />
           </div>
         );
       })}

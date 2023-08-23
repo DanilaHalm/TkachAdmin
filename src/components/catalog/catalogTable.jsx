@@ -4,6 +4,7 @@ import CatalogSectionTitle from "./catalogSectionTitle";
 import CatalogSectionLogo from "./catalogSectionLogo";
 import CatalogSectionDescription from "./catalogSectionDescription";
 import CatalogSectionAlbums from "./catalogSectionAlbums";
+import CatalogSectionDelete from "./catalogSectionDelete";
 
 const CatalogTable = () => {
   const [sections, setSections] = useContext(CatalogSectionContext);
@@ -32,6 +33,7 @@ const CatalogTable = () => {
             <CatalogSectionLogo id={id} logo={logo} />
             <CatalogSectionDescription id={id} description={description} />
             <CatalogSectionAlbums id={id} albumIds={albumIds} />
+            <CatalogSectionDelete id={id} logo={logo} sectionAlbums={sectionAlbums} />
           </div>
         );
       })}

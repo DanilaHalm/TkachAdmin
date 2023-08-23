@@ -7,7 +7,7 @@ const createCatalogAlbum = async (imgFiles, inputTitleText) => {
   const album = new Parse.Object("catalog");
   album.set("logo", newLogoUrl);
   album.set("title", inputTitleText);
-  album.set("albums", []);
+  album.set("images", []);
   try {
     await album.save();
     return album;

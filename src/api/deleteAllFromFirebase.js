@@ -7,6 +7,7 @@ const deleteAllFromFirebase = async (images) => {
 
   try {
     const deleted = await Promise.all(promises);
+    return deleted;
   } catch (error) {
     console.error(error);
     return null;

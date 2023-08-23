@@ -9,6 +9,8 @@ module.exports = {
     extend: {
       colors: {
         dark: "#222532",
+        darkMd: "#2d334f",
+        darkSm: "#4c5685",
         light: "#FFFFFF",
         pink: "#DA5D7D",
       },
@@ -23,6 +25,7 @@ module.exports = {
     maxWidth: {
       xs: "320px",
       s: "800px",
+      "1/2": "50%",
     },
   },
   plugins: [],

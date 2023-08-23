@@ -15,8 +15,8 @@ const CatalogSectionDescription = ({ id, description }) => {
   };
 
   return (
-    <div className="flex mb-2 border-b items-center">
-      <h3 className="mr-auto font-bold text-xl">Description: {descriptionText}</h3>
+    <div className="flex mb-2 border-b items-center ">
+      <h3 className="mr-auto font-bold text-xl max-w-1/2">Description: {descriptionText}</h3>
       <input
         onChange={(e) => setInputText(e.target.value)}
         type="text"

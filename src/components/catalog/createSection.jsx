@@ -35,8 +35,8 @@ const CreateSection = () => {
   };
 
   return (
-    <div className="flex max-w-s mx-auto flex-col items-center h-20 justify-between mb-4">
-      {" "}
+    <div className="flex max-w-s mx-auto flex-col items-center h-fit justify-between mb-4 p-2 border rounded-md">
+      <b>Create Section</b>{" "}
       <label htmlFor="gallery-create-title" className="mr-auto">
         {" "}
         New Title:

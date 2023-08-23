@@ -28,7 +28,7 @@ const CatalogSectionAlbums = ({ id, albumIds }) => {
         ];
 
         return (
-          <div key={id} className="p-2 mb-16 items-center border rounded-md border-current">
+          <div key={id} className="p-2 mb-16 items-center border rounded-md border-current bg-darkMd">
             <CatalogAlbumTitle id={id} title={title} />
             <CatalogAlbumLogo id={id} logo={logo} />
             <CatalogAlbumImages id={id} images={images} />

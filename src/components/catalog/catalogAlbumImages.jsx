@@ -54,7 +54,7 @@ const CatalogAlbumImages = ({ id, images }) => {
         const url = currentImage.url;
         return (
           <div key={url}>
-            <div className="flex mb-1 pb-1 border-b items-center">
+            <div className="flex mb-1 pb-1 border-b border-dotted items-center">
               <Image src={url} alt="albumimage" width="0" height="0" sizes="100vw" className="w-20 h-auto mr-auto " />
               <DeleteButton onClick={() => handleDelete(url)} />
             </div>

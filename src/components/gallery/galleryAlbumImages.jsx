@@ -50,7 +50,7 @@ const GalleryAlbumImages = ({ id, images }) => {
       </div>
       {currentImages?.map((url) => {
         return (
-          <div className="flex mb-1 pb-1 border-b items-center" key={url}>
+          <div className="flex mb-1 pb-1 border-b border-dotted items-center" key={url}>
             <Image src={url} alt="albumimage" width="0" height="0" sizes="100vw" className="w-20 h-auto mr-auto " />
             <DeleteButton onClick={() => handleDelete(url)} />
           </div>

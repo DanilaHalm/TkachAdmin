@@ -4,6 +4,7 @@ import CreateAlbum from "@/components/gallery/createAlbum";
 import { useEffect, useState } from "react";
 import { GalleryContext } from "@/servises/context";
 import Parse from "@/servises/parse";
+import PageLink from "@/components/pageLink";
 
 const getGallery = async () => {
   const gallery = new Parse.Query("gallery");
@@ -30,6 +31,8 @@ const Gallery = () => {
   return (
     <GalleryContext.Provider value={[albums, setAlbums]}>
       <main>
+        <PageLink url={"/catalog"} content={"Catalog"} className={`absolute top-10 left-10`} />
+
         <div className="flex flex-col justify-center items-center">
           <h1 className="font-bold text-3xl my-10"> Gallery </h1>
           <CreateAlbum />

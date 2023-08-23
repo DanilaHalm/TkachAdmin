@@ -28,7 +28,7 @@ const CreateAlbum = () => {
   };
 
   return (
-    <div className="flex max-w-s mx-auto flex-col items-center h-20 justify-between">
+    <div className="flex max-w-s mx-auto flex-col items-center h-fit justify-between p-2 border rounded-md">
       {" "}
       <label htmlFor="gallery-create" className="mr-auto">
         {" "}
@@ -36,12 +36,12 @@ const CreateAlbum = () => {
         <input
           id="gallery-create"
           type="text"
-          className="ml-2 text-dark"
+          className="ml-2 text-dark mt-2"
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
         />
       </label>
-      <div className="flex items-center">
+      <div className="flex items-center my-2">
         New Logo:
         <FileLoader
           id={id}

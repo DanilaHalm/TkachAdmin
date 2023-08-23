@@ -4,6 +4,7 @@ import { CatalogSectionContext, CatalogSectionAlbumsContext } from "@/servises/c
 import Parse from "@/servises/parse";
 import CatalogTable from "@/components/catalog/catalogTable";
 import CreateSection from "@/components/catalog/createSection";
+import PageLink from "@/components/pageLink";
 
 const getCatalogSections = async () => {
   const catalogSections = new Parse.Query("catalogSection");
@@ -46,6 +47,8 @@ const Catalog = () => {
       <CatalogSectionAlbumsContext.Provider value={[albums, setAlbums]}>
         {sections && (
           <main>
+            <PageLink url={"/gallery"} content={"Gallery"} className={`absolute top-10 left-10`} />
+
             <div className="flex flex-col justify-center items-center">
               <h1 className="font-bold text-3xl my-10"> Catalog </h1>
               <CreateSection />

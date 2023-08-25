@@ -2,7 +2,7 @@ import Parse from "@/servises/parse";
 import uploadToFirebase from "@/api/uploadToFirebase";
 
 const createGalleryAlbum = async (imgFiles, inputText) => {
-  const newLogoUrls = await uploadToFirebase(imgFiles);
+  const newLogoUrls = await uploadToFirebase(imgFiles, "gallery");
   const newLogoUrl = newLogoUrls[0];
   const album = new Parse.Object("gallery");
   album.set("albumLogo", newLogoUrl);

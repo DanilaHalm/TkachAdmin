@@ -2,7 +2,7 @@ import uploadToFirebase from "@/api/uploadToFirebase";
 import Parse from "@/servises/parse";
 
 const updateCatalogAlbumImages = async (imgFiles, id, currentImages) => {
-  const newLogoUrls = await uploadToFirebase(imgFiles);
+  const newLogoUrls = await uploadToFirebase(imgFiles, "catalog");
   const newAlbumImages = newLogoUrls.map((url) => {
     return {
       url: url,

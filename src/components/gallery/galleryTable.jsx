@@ -22,7 +22,7 @@ const GalleryTable = () => {
         ];
 
         return (
-          <div key={id} className="p-2 mb-16 items-center border rounded-md border-current">
+          <div key={id} className="p-2 mb-16 items-center border rounded-md border-current bg-darkHd">
             <GalleryAlbumTitle title={title} id={id} />
             <GalleryAlbumLogo logo={logo} id={id} />
             <GalleryAlbumImages images={images} id={id} />

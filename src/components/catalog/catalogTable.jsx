@@ -28,7 +28,7 @@ const CatalogTable = () => {
         const sectionAlbums = albums.filter((album) => albumIds?.includes(album.id));
 
         return (
-          <div key={id} className="p-2 mb-16 items-center border rounded-md border-current">
+          <div key={id} className="p-2 mb-16 items-center border rounded-md border-current bg-darkHd">
             <CatalogSectionTitle id={id} title={title} />
             <CatalogSectionLogo id={id} logo={logo} />
             <CatalogSectionDescription id={id} description={description} />

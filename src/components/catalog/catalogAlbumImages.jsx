@@ -8,7 +8,7 @@ import updateCatalogAlbumImages from "@/api/updateCatalogAlbumImages";
 import deleteCatalogAlbumImage from "@/api/deleteCatalogAlbumImage";
 import deleteCatalogAlbumImages from "@/api/deleteCatalogAlbumImages";
 
-const CatalogAlbumImages = ({ id, images }) => {
+const CatalogAlbumImages = ({ id, images, setAlbumImages }) => {
   const [imgFiles, setImgFiles] = useState([]);
   const [localFileUrls, setLocalFileUrls] = useState([]);
   const [currentImages, setCurrentImages] = useState(images || []);
@@ -17,6 +17,7 @@ const CatalogAlbumImages = ({ id, images }) => {
   const handleUpdate = async (imgFiles, id) => {
     const newImages = await updateCatalogAlbumImages(imgFiles, id, currentImages);
     if (newImages) {
+      setAlbumImages([...currentImages, ...newImages]);
       setCurrentImages([...currentImages, ...newImages]);
       setLocalFileUrls([]);
       setImgFiles([]);
@@ -25,11 +26,13 @@ const CatalogAlbumImages = ({ id, images }) => {
 
   const handleDelete = async (url) => {
     const newImages = await deleteCatalogAlbumImage(url, id, currentImages);
+    setAlbumImages(newImages);
     setCurrentImages(newImages);
   };
 
   const handleDeleteAll = async (images) => {
     const deleted = await deleteCatalogAlbumImages(id, images);
+    setAlbumImages([]);
     setCurrentImages([]);
   };
 

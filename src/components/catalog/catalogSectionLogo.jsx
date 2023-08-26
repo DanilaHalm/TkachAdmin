@@ -5,7 +5,7 @@ import { useState } from "react";
 import updateCatalogSectionLogo from "@/api/updateCatalogSectionLogo";
 import deleteFromFirebase from "@/api/deleteFromFirebase";
 
-const CatalogSectionLogo = ({ id, logo }) => {
+const CatalogSectionLogo = ({ id, logo, setSectionLogo }) => {
   const [imgFiles, setImgFiles] = useState([]);
   const [localFileUrls, setLocalFileUrls] = useState([]);
   const [currentLogo, setCurrentLogo] = useState(logo);
@@ -14,6 +14,7 @@ const CatalogSectionLogo = ({ id, logo }) => {
     const newLogo = await updateCatalogSectionLogo(imgFiles, id);
     if (newLogo) {
       await deleteFromFirebase(currentLogo);
+      setSectionLogo(newLogo);
       setCurrentLogo(newLogo);
       setLocalFileUrls([]);
     }

@@ -1,12 +1,9 @@
 import { CatalogSectionAlbumsContext } from "@/servises/context";
 import { useContext } from "react";
-import CatalogAlbumTitle from "./catalogAlbumTitle";
-import CatalogAlbumLogo from "./catalogAlbumLogo";
-import CatalogAlbumImages from "./catalogAlbumImages";
+import CatalogAlbum from "./catalogAlbum";
 import CreateAlbum from "./createAlbum";
-import CatalogAlbumDelete from "./catalogAlbumDelete";
 
-const CatalogSectionAlbums = ({ id, albumIds }) => {
+const CatalogSectionAlbums = ({ id, albumIds, sectionId }) => {
   const [albums, setAlbums] = useContext(CatalogSectionAlbumsContext);
   const sectionAlbums = albums.filter((album) => albumIds.includes(album.id));
 
@@ -28,12 +25,15 @@ const CatalogSectionAlbums = ({ id, albumIds }) => {
         ];
 
         return (
-          <div key={id} className="p-2 mb-16 items-center border rounded-md border-current bg-darkMd">
-            <CatalogAlbumTitle id={id} title={title} />
-            <CatalogAlbumLogo id={id} logo={logo} />
-            <CatalogAlbumImages id={id} images={images} />
-            <CatalogAlbumDelete id={id} logo={logo} images={images} />
-          </div>
+          <CatalogAlbum
+            key={id}
+            id={id}
+            title={title}
+            logo={logo}
+            images={images}
+            sectionId={sectionId}
+            sectionAlbumsIds={albumIds}
+          />
         );
       })}
     </div>

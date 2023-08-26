@@ -5,7 +5,7 @@ import { useState } from "react";
 import updateGalleryLogo from "@/api/updateGalleryLogo";
 import deleteFromFirebase from "@/api/deleteFromFirebase";
 
-const GalleryAlbumLogo = ({ id, logo }) => {
+const GalleryAlbumLogo = ({ id, logo, setAlbumLogo }) => {
   const [imgFiles, setImgFiles] = useState([]);
   const [localFileUrls, setLocalFileUrls] = useState([]);
   const [currentLogo, setCurrentLogo] = useState(logo);
@@ -16,6 +16,7 @@ const GalleryAlbumLogo = ({ id, logo }) => {
       await deleteFromFirebase(currentLogo);
       setCurrentLogo(newLogo);
       setLocalFileUrls([]);
+      setAlbumLogo(newLogo);
     }
   };
 

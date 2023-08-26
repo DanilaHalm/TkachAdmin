@@ -7,7 +7,7 @@ import updateGalleryImages from "@/api/updateGalleryImages";
 import deleteGalleryImage from "@/api/deleteGalleryImage";
 import deleteGalleryImages from "@/api/deleteGalleryImages";
 
-const GalleryAlbumImages = ({ id, images }) => {
+const GalleryAlbumImages = ({ id, images, setAlbumImages }) => {
   const exImages = images || [];
   const [imgFiles, setImgFiles] = useState([]);
   const [localFileUrls, setLocalFileUrls] = useState([]);
@@ -16,6 +16,7 @@ const GalleryAlbumImages = ({ id, images }) => {
   const handleUpdate = async (imgFiles, id) => {
     const newImages = await updateGalleryImages(imgFiles, id, currentImages);
     if (newImages) {
+      setAlbumImages([...currentImages, ...newImages]);
       setCurrentImages([...currentImages, ...newImages]);
       setLocalFileUrls([]);
       setImgFiles([]);

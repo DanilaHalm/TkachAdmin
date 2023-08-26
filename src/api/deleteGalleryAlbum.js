@@ -4,7 +4,7 @@ import Parse from "@/servises/parse";
 
 const deleteGalleryAlbum = async (logo, images, id) => {
   const deletedLogo = await deleteFromFirebase(logo);
-  if (images?.letgth > 0) {
+  if (images?.length > 0) {
     const deletedImages = await deleteAllFromFirebase(images);
   }
   const album = new Parse.Object("gallery");
